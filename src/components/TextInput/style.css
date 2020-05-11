@@ -6,12 +6,36 @@
 }
 
 .text-input .input {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 11px;
 }
 
 .text-input .label {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.password {
+  position: relative;
+}
+
+.password .input {
+  width: 98%;
+}
+
+.password-control {
+  position: absolute;
+  top: 11px;
+  right: 6px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+  border: none;
+  background-color: transparent;
+}
+
+.password-control.view {
+  background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
 }

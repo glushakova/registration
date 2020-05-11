@@ -1,27 +1,49 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-class TextInput extends Component {
-  render() {
-    return (
-      <div className="text-input">
-        <span className="label">{this.props.label}</span>
+function TextInput(props) {
+  const { type, label, valueFromProps, onChangeFromProps } = props;
+
+  const [style, addStyle] = useState('');
+
+  const show_hide_password = () => {
+    var input = document.getElementsByClassName('input')[1];
+    if (input.getAttribute('type') == 'password') {
+      input.setAttribute('type', 'text');
+      addStyle('view');
+    } else {
+      input.setAttribute('type', 'password');
+      addStyle('');
+    }
+  };
+
+  return (
+    <div className="text-input">
+      <span className="label">{label}</span>
+      <div className="password">
         <input
           className="input"
-          type={this.props.type}
-          onChange={this.props.onChangeFromProps}
-          value={this.props.valueFromProps}
+          type={type}
+          onChange={onChangeFromProps}
+          value={valueFromProps}
         />
+        {type === 'password' && (
+          <button
+            className={`password-control ${style}`}
+            onClick={() => show_hide_password()}
+          ></button>
+        )}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 TextInput.propTypes = {
-  label: PropTypes.string,
   type: PropTypes.string,
-  onChange: PropTypes.func,
-  value: PropTypes.func,
+  label: PropTypes.string,
+  valueFromProps: PropTypes.string,
+  onChangeFromProps: PropTypes.func,
 };
-export default TextInput;
+
+export { TextInput };

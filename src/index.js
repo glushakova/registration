@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import firebaseConfig from './firebaseConfig';
+import Navigation from './Navigation';
 
-// Firebase App (the core Firebase SDK) is always required and must be listed first
+import firebaseConfig from './config/firebaseConfig';
 import firebase from 'firebase';
-
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Navigation />
   </React.StrictMode>,
   document.getElementById('root')
 );
